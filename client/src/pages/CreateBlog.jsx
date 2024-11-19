@@ -83,6 +83,7 @@ const CreateBlog = () => {
         headers: {
           "Content-Type": "multipart/form-data",
         },
+        withCredentials: true,
       });
       toast.success("Post created successfully!");
       navigate(`/post/${response.data.message.post.slug}`);
@@ -220,5 +221,3 @@ const CreateBlog = () => {
 };
 
 export default CreateBlog;
-
-

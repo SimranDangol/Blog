@@ -17,9 +17,9 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 //Middlewares
-app.use(express.json({ limit: "16kb" }));
+app.use(express.json());
 app.use(cookieParser());
-app.use(express.urlencoded({ extended: true, limit: "16kb" }));
+app.use(express.urlencoded({ extended: true}));
 const corsOptions = { origin: process.env.URL, credentials: true };
 app.use(cors(corsOptions));
 app.use(express.static("public"));
@@ -37,6 +37,8 @@ app.use("/api/v1/comment", commentRouter);
 
 // // Serve static files from client/dist
 app.use(express.static(path.join(__dirname, "../client/dist")));
+
+
 
 // // Catch-all handler for SPA
 app.get("*", (req, res) => {
