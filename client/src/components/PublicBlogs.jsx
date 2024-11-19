@@ -147,6 +147,8 @@
 
 // export default Blogs;
 
+
+
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -156,7 +158,7 @@ import { Button } from "@/components/ui/button";
 import { CalendarIcon, ArrowRight, Loader2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
-import { motion } from "framer-motion"; // Import motion from framer-motion
+import { motion } from "framer-motion"; 
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const Blogs = () => {
@@ -174,7 +176,8 @@ const Blogs = () => {
       try {
         // Fetching all posts (no userId filter)
         const res = await axios.get(`/api/v1/post/getblog`);
-        setPosts(res.data.data.posts || []);
+        console.log("API Response:", res.data);
+        setPosts(res.data?.data?.posts || []);
       } catch (error) {
         console.error("Failed to fetch blog:", error.message);
         toast.error("Failed to fetch blog: " + error.message);
@@ -305,3 +308,4 @@ const Blogs = () => {
 };
 
 export default Blogs;
+

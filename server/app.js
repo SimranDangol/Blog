@@ -11,21 +11,10 @@ import userRouter from "./routes/user.route.js";
 import postRouter from "./routes/post.route.js";
 import commentRouter from "./routes/comment.route.js";
 
-// Define __filename and __dirname in ES module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-
-// Serve static files from client/dist
-app.use(express.static(path.join(__dirname, "../client/dist")));
-console.log("Static files path:", path.join(__dirname, "../client/dist"));
-
-// Catch-all handler for SPA
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
-  console.log("Trying to serve:", indexPath);
-});
 
 //Middlewares
 app.use(express.json({ limit: "16kb" }));
@@ -45,5 +34,13 @@ app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/post", postRouter);
 app.use("/api/v1/comment", commentRouter);
+
+// // Serve static files from client/dist
+app.use(express.static(path.join(__dirname, "../client/dist")));
+
+// // Catch-all handler for SPA
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+});
 
 export default app;
