@@ -38,8 +38,6 @@ app.use("/api/v1/comment", commentRouter);
 // // Serve static files from client/dist
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
-
-
 // // Catch-all handler for SPA
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/dist/index.html"));
