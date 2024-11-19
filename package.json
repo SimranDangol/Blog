@@ -21,7 +21,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon -r dotenv/config server/index.js",
-    "start": "node -r dotenv/config server/index.js"
+    "start": "node -r dotenv/config server/index.js",
+     "build": "npm install && npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "",
