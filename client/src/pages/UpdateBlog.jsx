@@ -4,7 +4,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import 'react-quill/dist/quill.snow.css';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
