@@ -24,7 +24,7 @@
   "start": "node server/index.js",
   "build": "npm install && npm install --prefix client && npm run build --prefix client"
 },
-
+"render-postbuild": "npm install --production=false --prefix frontend && cd /opt/render/project/src/client && npm run build",
   "keywords": [],
   "author": "",
   "license": "ISC",
