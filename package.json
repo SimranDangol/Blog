@@ -22,9 +22,8 @@
 "scripts": {
   "dev": "nodemon -r dotenv/config server/index.js",
   "start": "node server/index.js",
- "build": "npm install --production=false && npm install --prefix client --production=false && npm run build --prefix client",
-    "render-build": "npm install --production=false && cd client && npm install --production=false && npm run build"
-  },
+  "build": "NPM_CONFIG_PRODUCTION=false npm install && npm install --prefix client && npm run build --prefix client"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
