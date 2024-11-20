@@ -11,7 +11,6 @@
     "mongoose": "^8.8.0",
     "multer": "^1.4.5-lts.1"
   },
-  "render-postbuild": "npm install --production=false --prefix client && cd /opt/render/project/src/client && npm run build",
   "devDependencies": {
     "dotenv": "^16.4.5",
     "nodemon": "^3.1.7"
@@ -23,8 +22,9 @@
 "scripts": {
   "dev": "nodemon -r dotenv/config server/index.js",
   "start": "node server/index.js",
-  "build": "npm install && npm install --prefix client && npm run build --prefix client"
-},
+ "build": "npm install --production=false && npm install --prefix client --production=false && npm run build --prefix client",
+    "render-build": "npm install --production=false && cd client && npm install --production=false && npm run build"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
